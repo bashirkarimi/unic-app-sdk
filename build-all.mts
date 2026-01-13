@@ -16,12 +16,12 @@ const GLOBAL_CSS_LIST = [path.resolve("src/index.css")];
 
 const targets: string[] = [
   "pizzaz",
-  "pizzaz-carousel",
-  "pizzaz-list",
-  "pizzaz-albums",
-  "pizzaz-shop",
-  "mixed-auth-past-orders",
-  "shopping-cart",
+  // "pizzaz-carousel",
+  // "pizzaz-list",
+  // "pizzaz-albums",
+  // "pizzaz-shop",
+  // "mixed-auth-past-orders",
+  // "shopping-cart",
 ];
 const builtNames: string[] = [];
 
