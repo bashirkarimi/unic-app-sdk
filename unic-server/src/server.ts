@@ -137,13 +137,15 @@ function formatArticlePreview(article: MagazineArticle): string {
     day: "numeric",
   });
 
+  const articleUrl = `https://www.unic.com/en/magazine/${article.slug}`;
+
   return `**${article.title}**
 
-📅 Published: ${date}
-✍️ Author: ${article.author.name}
-🔗 Slug: ${article.slug}
+    📅 Published: ${date}
+    ✍️ Author: ${article.author.name}
+    🔗 Read full article: ${articleUrl}
 
-${article.lead || "No summary available."}`;
+    ${article.lead || "No summary available."}`;
 }
 
 // Format article list
@@ -158,9 +160,10 @@ function formatArticleList(articles: MagazineArticle[]): string {
         "en-US",
         { year: "numeric", month: "short", day: "numeric" }
       );
+      const articleUrl = `https://www.unic.com/en/magazine/${article.slug}`;
       return `${index + 1}. **${article.title}**
-    📅 ${date} | ✍️ ${article.author.name}
-    🔗 ${article.slug}`;
+        📅 ${date} | ✍️ ${article.author.name}
+        🔗 Read more: ${articleUrl}`;
     })
     .join("\n\n");
 }
@@ -169,7 +172,7 @@ const tools: Tool[] = [
   {
     name: "search_articles",
     description:
-      "Search blog articles by keyword. Searches in title, lead/summary, and author name.",
+      "Search blog articles by keyword. Searches in title, lead/summary, and author name. Returns formatted results with article URLs (https://www.unic.com/en/magazine/...).",
     inputSchema: {
       type: "object",
       properties: {
@@ -189,7 +192,7 @@ const tools: Tool[] = [
   {
     name: "filter_articles_by_date",
     description:
-      "Filter blog articles by publication date range. Returns articles sorted by date (newest first).",
+      "Filter blog articles by publication date range. Returns articles sorted by date (newest first) with article URLs (https://www.unic.com/en/magazine/...).",
     inputSchema: {
       type: "object",
       properties: {
@@ -211,7 +214,8 @@ const tools: Tool[] = [
   },
   {
     name: "filter_articles_by_author",
-    description: "Filter blog articles by author name.",
+    description:
+      "Filter blog articles by author name. Returns formatted results with article URLs (https://www.unic.com/en/magazine/...).",
     inputSchema: {
       type: "object",
       properties: {
@@ -231,7 +235,7 @@ const tools: Tool[] = [
   {
     name: "list_recent_articles",
     description:
-      "List the most recent blog articles, sorted by publication date.",
+      "List the most recent blog articles, sorted by publication date. Returns formatted results with article URLs (https://www.unic.com/en/magazine/...).",
     inputSchema: {
       type: "object",
       properties: {
@@ -273,7 +277,7 @@ function getResources(): Resource[] {
 function createBlogServer(): Server {
   const server = new Server(
     {
-      name: "unic-blog-server",
+      name: "unic-article-server",
       version: "1.0.0",
     },
     {
