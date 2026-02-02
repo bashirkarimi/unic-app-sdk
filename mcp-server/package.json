@@ -1,0 +1,22 @@
+{
+  "name": "unic-mcp-server",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "Model Context Protocol (MCP) server for Unic.com - enables ChatGPT to discover, search, and display rich previews of Magazine, projects content.",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "blog",
+    "chatgpt",
+    "unic"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.2",
+    "zod": "^3.25.8"
+  }
+}

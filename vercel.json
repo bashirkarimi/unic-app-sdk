@@ -1,0 +1,37 @@
+{
+  "buildCommand": "pnpm build",
+  "outputDirectory": "ui-sdk/dist",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "env": {
+    "NODE_ENV": "production",
+    "ALLOWED_ORIGIN": "https://chatgpt.com"
+  },
+  "rewrites": [
+    {
+      "source": "/mcp",
+      "destination": "/api/mcp"
+    },
+    {
+      "source": "/mcp/(.*)",
+      "destination": "/api/mcp"
+    }
+  ],
+  "functions": {
+    "api/mcp.js": {
+      "memory": 1024,
+      "maxDuration": 60,
+      "includeFiles": "{blogposts.en.json,ui-sdk/dist/**,mcp-server/src/**}"
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/mcp",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    }
+  ]
+}
