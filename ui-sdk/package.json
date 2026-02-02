@@ -1,0 +1,41 @@
+{
+  "name": "unic-ui-sdk",
+  "version": "1.0.0",
+  "description": "Unic.com UI widgets built with Vite and React",
+  "main": "src/article-list/index.tsx",
+  "scripts": {
+    "build": "tsx ./build-all.mts",
+    "serve": "serve -s ./assets -p 4444 --cors",
+    "dev": "vite --config vite.config.mts",
+    "tsc": "tsc"
+  },
+  "keywords": [
+    "ui",
+    "widgets",
+    "react",
+    "vite"
+  ],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.24.0",
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "@types/node": "^24.3.0",
+    "@vitejs/plugin-react": "^4.5.2e",
+    "fast-glob": "^3.3.3",
+    "serve": "^14.2.4",
+    "tailwindcss": "4.1.11",
+    "tsx": "^4.20.4",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.1"
+  },
+  "dependencies": {
+    "@openai/apps-sdk-ui": "^0.2.1",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.536.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  }
+}
